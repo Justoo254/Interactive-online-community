@@ -1,0 +1,58 @@
+    
+    
+    
+    <body>
+      <header>
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.5.2/css/bootstrap.min.css">
+        <link rel="style" href="https://cdnjs.cloudfare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+      </header>
+        <style>
+            body{
+                padding-top: 50px;
+                background-color: aqua;
+            }
+            #homepage {
+                text-align: center;
+            }
+
+        </style>
+        <div id="homepage">
+            <h3 id="text1">Welcome <%= name %> </h3>
+            <h1><%= title %> </h1>
+            <div class="topnav" id="myTopnav">
+            <nav class="navbar navbar-expand-lg navbar-light bg-light">
+                <a class="navbar-brand" href="/EGERCOMM">EGERCOMM</a>
+                <ul class="navbar-nav mr-auto">
+                  <li class="nav-item">
+                    <a class="nav-link" href="/Marketplace"><%= nav[0] %> </a>
+                  </li>
+                  <li class="nav-item">
+                    <a class="nav-link" ref="/<% nav[1] %> "><%= nav[1] %> </a>
+                  <li class="nav-item">
+                    <a class="nav-link" href="/<% nav[2] %> "><%= nav[2] %> </a>
+                  </li>
+                </ul>
+              </nav>
+              <a href="/logout">Logout</a> <br>
+              <a href="/profile">Upload your profile pic</a>
+        </div>
+    </body>
+    <%- include("partials/footer") %> 
+    <script>
+    const time = new Date().getHours();
+    const greeting = () => {
+         if (time >= 4 && time <=11) {
+            return "good morning!"
+         } else if (time >= 12 && time <=16) {
+            return "good afternoon!"
+         } else if (time >= 17 && time <= 20) {
+         return  "good evening!"
+         } else  {
+         return "good night!"
+         }
+    }
+         const editText = document.getElementById("text1");
+         editText.textContent += greeting();
+    </script>
+
+</html>
